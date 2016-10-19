@@ -23,7 +23,7 @@ noble.on('discover', function(peripheral){
   }
   strength = (100*strength)/90;
   ourData = strength;
-
+  console.log(ourData);
   // Sends data to hub
   socket.emit('sensor.data', {
     id: ourID,
