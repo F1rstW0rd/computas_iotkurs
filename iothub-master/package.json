@@ -1,0 +1,28 @@
+{
+  "name": "IOT-Hub",
+  "version": "1.0.0",
+  "description": "A hub for IOT-devices to communicate through, using websockets. The hub expects sensors to send sensor:data events to the hub, which the hub will redistribute to connected clients as client:display. It also hosts an example client at /client.",
+  "main": "web.js",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/mapster/iothub.git"
+  },
+  "scripts": {
+    "start": "node server.js"
+  },
+  "keywords": [
+    "WebSockets",
+    "express",
+    "socket.io",
+    "IoT",
+    "Hub"
+  ],
+  "author": "@krsjan, @teodoran, @mapster",
+  "license": "MIT",
+  "homepage": "https://github.com/mapster/iothub#readme",
+  "dependencies": {
+    "express": "^4.13.4",
+    "socket.io": "^1.4.5",
+    "socket.io-client": "^1.4.5"
+  }
+}
