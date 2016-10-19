@@ -1,10 +1,10 @@
 var noble = require('noble');
 var socket = require('socket.io-client')('http://localhost:3000');
 
-var id = "Nettvev_avstand";
-var type = "sensortag_distance";
-var sensor = "bluetooth";
-var data = -1;
+var ourID = "Nettvev_avstand";
+var ourType = "sensortag_distance";
+var ourSensor = "bluetooth";
+var ourData = -1;
 
 noble.on('stateChange', function(state){
   var mac = ["b0:b4:48:c3:5a:03"];
@@ -22,6 +22,13 @@ noble.on('discover', function(peripheral){
     strength = 90;
   }
   strength = (100*strength)/90;
-  data = strength;
+  ourData = strength;
 
-})
+  // Sends data to hub
+  socket.emit('sensor.data', {
+    id: ourID,
+    type: ourType,
+    sensor: ourSensor,
+    data: ourData
+  });
+});
