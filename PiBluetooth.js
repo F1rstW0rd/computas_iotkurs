@@ -6,8 +6,15 @@ var ourType = "sensortag_distance";
 var ourSensor = "bluetooth";
 var ourData = -1;
 
-var mac = ["b0:b4:48:c3:5a:03"];
-noble.startScanning(mac, true);
+noble.on('stateChange', function(state){
+  var mac = ["b0:b4:48:c3:5a:03"];
+  if(state == 'poweredOn'){
+    noble.startScanning(mac, true);
+  } else{
+    console.log("wat happens");
+    noble.stopScanning();
+  }
+});
 
 noble.on('discover', function(peripheral){
   var strength = -1;
