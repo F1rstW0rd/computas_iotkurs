@@ -9,6 +9,7 @@ var ourData = -1;
 noble.on('stateChange', function(state){
   var mac = ["b0:b4:48:c3:5a:03"];
   if(state == 'poweredOn'){
+    console.log("It's alive!");
     noble.startScanning(mac, true);
   } else{
     console.log("wat happens");
